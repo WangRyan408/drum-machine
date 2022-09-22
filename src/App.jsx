@@ -11,8 +11,10 @@ function App() {
   };
 
   function handleClick(e) {
-    console.log(`You clicked keyCode: 81`);
-    const audio = document.querySelector()
+    console.log(e.target.childNodes);
+    const audio = e.target.childNodes[1];
+    audio.currentTime = 0;
+    audio.play();
   }
 
 
@@ -22,8 +24,8 @@ function App() {
       <div id="keys">
         <div className="drum-pad" id="heater-1" data-key="q" data-keycode="81" onClick={handleClick}><kbd>Q</kbd><audio data-key="q" src="../assets/Heater-1.mp3"></audio></div>
         <div className="drum-pad" id="heater-2" data-key="w" onClick={handleClick}><kbd>W</kbd><audio data-key="w" src="../assets/Heater-2.mp3"></audio></div>
-        <div className="drum-pad" id="heater-3" data-key="e" onClick={handleClick}><kbd>E</kbd><audio  data-key="e"src="../assets/Heater-3.mp3"></audio></div>
-        <div className="drum-pad" id="heater-4" data-key="a" onClick={handleClick}><kbd>A</kbd><audio  data-key="a"src="../assets/Heater-4_1.mp3"></audio></div>
+        <div className="drum-pad" id="heater-3" data-key="e" onClick={handleClick}><kbd>E</kbd><audio data-key="e" src="../assets/Heater-3.mp3"></audio></div>
+        <div className="drum-pad" id="heater-4" data-key="a" onClick={handleClick}><kbd>A</kbd><audio data-key="a" src="../assets/Heater-4_1.mp3"></audio></div>
         <div className="drum-pad" id="clap" data-key="s" onClick={handleClick}><kbd>S</kbd><audio  data-key="s" src="../assets/Heater-6.mp3"></audio></div>
         <div className="drum-pad" id="open-hh" data-key="d" onClick={handleClick}><kbd>D</kbd><audio data-key="d" src="../assets/Dsc_Oh.mp3"></audio></div>
         <div className="drum-pad" id="kick-n-hat" data-key="z" onClick={handleClick}><kbd>Z</kbd><audio data-key="z" src="../assets/Cev_H2.mp3"></audio></div>
