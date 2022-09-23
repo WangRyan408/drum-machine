@@ -3,6 +3,8 @@ import './App.css';
 
 function App() {
 
+  const [input, changeInput] = useState('');
+
   function handleKeyDown(e) {
     console.log(`User pressed: ${e.keyCode}`);
     const audio = document.querySelector(`audio[data-key="${e.key}"]`);
@@ -12,7 +14,7 @@ function App() {
 
   function handleClick(e) {
     console.log(e.target.childNodes);
-    const audio = e.target.childNodes[1];
+    const audio = e.currentTarget.childNodes[1];
     audio.currentTime = 0;
     audio.play();
   }
