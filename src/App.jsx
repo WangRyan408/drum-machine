@@ -4,25 +4,46 @@ import './App.css';
 function App() {
 
   const [input, changeInput] = useState('');
+  
+  const names = {
+    'q': "Heater 1",
+    'w': "Heater 2",
+    'e': "Heater 3",
+    'a': "Heater 4",
+    's': "Clap",
+    'd': "Open HH",
+    'z': "Kick N' Hat",
+    'x': "Kick",
+    'c': "Closed HH",
+  }
 
   function handleKeyDown(e) {
-    console.log(`User pressed: ${e.keyCode}`);
     const audio = document.querySelector(`audio[data-key="${e.key}"]`);
     audio.currentTime = 0;
     audio.play();
+    displayKeyPress(e.key);
   };
 
   function handleClick(e) {
-    console.log(e.target.childNodes);
     const audio = e.currentTarget.childNodes[1];
     audio.currentTime = 0;
     audio.play();
+    displayClick(e);
   }
+
+  function displayKeyPress(key) {
+    changeInput(names[key]);
+  }
+
+  function displayClick(e) {
+    changeInput(e.currentTarget.id);
+  }
+
 
 
   return (
     <div className="App" id="drum-machine" onKeyDown={handleKeyDown} tabIndex="0">
-      <div id="display">Placeholder Text</div>
+      <div id="display" dangerouslySetInnerHTML={{__html: input}}></div>
       <div id="keys">
         <div className="drum-pad" id="heater-1" data-key="q" data-keycode="81" onClick={handleClick}><kbd>Q</kbd><audio data-key="q" src="../assets/Heater-1.mp3"></audio></div>
         <div className="drum-pad" id="heater-2" data-key="w" onClick={handleClick}><kbd>W</kbd><audio data-key="w" src="../assets/Heater-2.mp3"></audio></div>

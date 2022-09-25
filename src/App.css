@@ -13,7 +13,7 @@
 
 #display {
   margin-bottom: 100px;
-  outline: 2px solid red;
+  outline: none;
   font-size: 24px;
 }
 
